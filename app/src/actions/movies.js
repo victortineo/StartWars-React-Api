@@ -4,10 +4,10 @@ const api = new Api()
 
 export const SET_MOVIES = 'SET_MOVIES';
 
-function setMovies (goal){
+function setMovies (movies){
     return {
         type: SET_MOVIES,
-        goal
+        movies
     }
 }
 

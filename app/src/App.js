@@ -5,6 +5,7 @@ import {
   handleInitialData
 } from './actions/shared'
 import PeopleList from './components/PeopleList';
+import Orderer from './components/Orderer';
 
 class App extends Component {
   componentDidMount(){
@@ -15,6 +16,7 @@ class App extends Component {
   render(){
     return (
       <div className="App">
+        <Orderer />
         <PeopleList />
       </div>
     );

@@ -4,10 +4,10 @@ const api = new Api()
 
 export const SET_PEOPLE = 'SET_PEOPLE';
 
-function setPeople (goal){
+function setPeople (people){
     return {
         type: SET_PEOPLE,
-        goal
+        people
     }
 }
 
