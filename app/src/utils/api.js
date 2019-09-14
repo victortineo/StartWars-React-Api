@@ -6,7 +6,7 @@ class Api {
     getData(res){
         return res.data[0].results
     }
-    films(){
+    movies(){
         return axios.get(`${BASE_URL}films`).then(this.getData)
     }
     people(){
