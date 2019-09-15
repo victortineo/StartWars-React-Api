@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux'
-import './App.css';
+import { BrowserRouter as Router, Route} from 'react-router-dom'
 import {
   handleInitialData
 } from './actions/shared'
-import PeopleList from './components/PeopleList';
-import Orderer from './components/Orderer';
+
+import PeoplePage from './pages/PeoplePage';
+import FilmPage from './pages/FilmPage';
+import './App.scss';
+import './Reset.css';
+import './static/page-layout.scss'
 
 class App extends Component {
   componentDidMount(){
@@ -16,8 +20,10 @@ class App extends Component {
   render(){
     return (
       <div className="App">
-        <Orderer />
-        <PeopleList />
+        <Router>
+          <Route path="/" exact component={PeoplePage} />
+          <Route path="/film/:id" component={FilmPage} />
+        </Router>
       </div>
     );
   }

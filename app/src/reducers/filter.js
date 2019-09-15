@@ -6,7 +6,7 @@ import {
 
 const initialState = {
     type: '',
-    'order': 'starships',
+    'order': 'films',
     'filter': ''
 }
 

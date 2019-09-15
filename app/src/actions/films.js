@@ -2,20 +2,20 @@ import Api from '../utils/api';
 
 const api = new Api()
 
-export const SET_MOVIES = 'SET_MOVIES';
+export const SET_FILMS = 'SET_FILMS';
 
-function setMovies (movies){
+function setFilms (films){
     return {
-        type: SET_MOVIES,
-        movies
+        type: SET_FILMS,
+        films
     }
 }
 
 export function handleSetPeople ( cb ){
     return (dispatch) => {
         return api.films()
-            .then((movies) => {
-                dispatch(setMovies(movies))
+            .then((films) => {
+                dispatch(setFilms(films))
                 cb && cb()
             })
             .catch(() => { alert('Sorry bro, there was an error, try again') })

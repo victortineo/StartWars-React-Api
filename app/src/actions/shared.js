@@ -2,11 +2,12 @@ import Api from '../utils/api'
 
 export const RECEIVE_DATA = 'RECEIVE_DATA';        
 
-function receiveData(people, movies){
+function receiveData(people, films, species){
     return {
         type: RECEIVE_DATA,
         people,
-        movies
+        films,
+        species
     }
 }
 
@@ -15,9 +16,10 @@ export function handleInitialData () {
     return (dispatch) => {
         Promise.all([
             api.people(),
-            api.movies()
-        ]).then(([ people, movies ]) => {
-            dispatch(receiveData(people, movies))
+            api.films(),
+            api.species()
+        ]).then(([ people, films, species ]) => {
+            dispatch(receiveData(people, films, species))
         })
     }
 }

@@ -1,0 +1,10 @@
+.page-layout{
+    text-align: center;
+    &__title{
+        font-weight: 700;
+        font-size: 32px;
+        font-family: sans-serif;
+        text-transform: uppercase;
+        margin: 5px 0;
+    }
+}

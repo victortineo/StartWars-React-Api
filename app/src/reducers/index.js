@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux'
 import people from './people'
-import movies from './movies'
+import films from './films'
 import filter from './filter'
+import species from './species'
 
 export default combineReducers({
-    people, movies, filter
+    people, films, filter, species
 })

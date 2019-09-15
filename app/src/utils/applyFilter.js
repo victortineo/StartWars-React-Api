@@ -1,4 +1,4 @@
-export const applyFilter = (items, filter) => {
+export const applySorter = (items, filter) => {
     return sorter(items, filter)
 }
 
@@ -15,10 +15,22 @@ const sorter = (items, filter) => {
                 itemB = b.films.length
                 nameB = b.name
                 break
+            case 'species':
+                itemA = a.species[0] || 0
+                nameA = a.name
+                itemB = b.species[0] || 0
+                nameB = b.name
+                break
             case 'gender':
                 itemA = a.gender
                 nameA = a.name
                 itemB = b.gender
+                nameB = b.name
+                break
+            case 'name':
+                itemA = ''
+                nameA = a.name
+                itemB = ''
                 nameB = b.name
                 break
             case 'starships': 
@@ -36,7 +48,6 @@ const sorter = (items, filter) => {
             default: break 
 
         }
-
         if(itemA === itemB)
         {
             return (nameA < nameB) ? -1 : (nameA > nameB) ? 1 : 0;

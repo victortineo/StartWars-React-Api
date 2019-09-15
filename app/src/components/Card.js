@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { Link } from 'react-router-dom'
 import '../static/card.scss'
 
 class Card extends Component {
@@ -10,10 +11,10 @@ class Card extends Component {
     
     hideInfo = () => this.setState({showInfo: false});
 
-    getOrderInfo = (order) => order === 'gender' ? order : order.length
+    getOrderInfo = (order, info) => order === 'gender' ? info : info.length
 
     render(){
-        const { info, links, order} = this.props
+        const { info, links, order, pathUrl, specie} = this.props
         const { showInfo } = this.state
         return(
             <div className="card" onMouseEnter={this.showInfo} onMouseLeave={this.hideInfo}>
@@ -21,15 +22,22 @@ class Card extends Component {
                     {info.name}
                 </h3>
                 <p>
-                    {order}: {this.getOrderInfo(info[order])}
+                    Specie: {specie.name}
                 </p>
+                {order !== 'name' && order !== 'species' &&
+                    <p>
+                        {order}: {this.getOrderInfo(order, info[order])}
+                    </p>
+                }
                 
                 {showInfo &&
                     <div className="card__hover">
                         {links ? 
                         <ul className="card__link">
                             {links.map(link => 
-                                <li className="card__link-item" key={`link_${link.id || link.episode_id}`}>{link.title || link.name}</li>      
+                                <li className="card__link-item" key={`link_${link.id}`}>
+                                    <Link to={`${pathUrl}${link.id}`}> {link.title || link.name}</Link>
+                                </li>      
                             )}
                         </ul>
                         : <p>Nenhum dado a ser mostrado</p>
