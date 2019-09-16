@@ -23,7 +23,7 @@ Para iniciar, acesse a pasta app e rode o comando
 Para baixar as depêndencias.<br>
 Após o download, use o comando 
 
-### `npm start`
+### `yarn start`
 
 Para iniciar o APP na porta 3000.<br>
 Utilizar a url [http://localhost:3000](http://localhost:3000) para acessar as telas.
