@@ -1,14 +1,12 @@
 import React from 'react';
 import PeopleList from '../components/PeopleList';
-import Orderer from '../components/Orderer';
+import PageLayout from '../components/PageLayout';
 
 const PeoplePage = () => {
     return (
-      <div className="page-layout">
-        <h1 className="page-layout__title">StarWars Characters</h1>
-        <Orderer />
+      <PageLayout title={'Star Wars Characters'}>
         <PeopleList />
-      </div>
+      </PageLayout>
     );
 }
 

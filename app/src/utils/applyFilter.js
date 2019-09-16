@@ -1,14 +1,19 @@
-export const applySorter = (items, filter) => {
-    return sorter(items, filter)
+export const applyFilter = (items, filterOptions) => {
+    return filter(sorter(items, filterOptions), filterOptions)
 }
 
-const sorter = (items, filter) => {
+const filter = (array, filterOptions) => {
+    const { filter_type, filter } = filterOptions
+    return filter_type !== '' ? filter !== '' ? array.filter(item => item[filter_type].toLowerCase().includes(filter.toLowerCase())) : array : array
+}   
+
+const sorter = (items, filterOptions) => {
     return items.sort((a, b) => {
         let itemA;
         let itemB;
         let nameA;
         let nameB;
-        switch (filter.order){
+        switch (filterOptions.order){
             case 'films':
                 itemA = a.films.length
                 nameA = a.name

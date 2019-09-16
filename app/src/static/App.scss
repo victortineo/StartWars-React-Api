@@ -1,0 +1,27 @@
+.App{
+    width: 80%;
+    list-style: none;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 45px;
+}
+
+.btn{
+    width: 150px;
+    margin: 0 auto;
+    background-color: #111;
+    padding: 10px;
+    color: #feda4a;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+@font-face {
+    font-family: 'StarJedi';
+    font-style: normal;
+    font-weight: 400;
+    src:
+      local('StarJedi'),
+      url(./starjedi/Starjedi.ttf),
+}

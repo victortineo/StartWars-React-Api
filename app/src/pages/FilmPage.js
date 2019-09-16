@@ -1,30 +1,37 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux'
-import { withRouter, Link } from 'react-router-dom' 
+import { withRouter } from 'react-router-dom' 
 
 import PeopleList from '../components/PeopleList'
-import Orderer from '../components/Orderer'
+import PageLayout from '../components/PageLayout'
+import StarWarsCrawler from '../components/StarWars-Crawler'
+import '../static/filmPage.scss'
 
 class FilmPage extends Component {
-  componentDidMount = () => {
-
+  state = {
+    showCrawler: false
   }
 
+  toggleCrawler = () => this.setState(prevState => ({showCrawler: !prevState.showCrawler}))
+
   render(){
+    const {showCrawler} = this.state
     const {current, cast} = this.props
     const releaseDate = new Date(current.release_date)
     const releaseDateString = `${releaseDate.getMonth()}/${releaseDate.getDate()}/${releaseDate.getFullYear()} `
-    
+    const info = [
+      `Directed By: ${current.director}`,
+      `Released at: ${releaseDateString}`,
+    ]
     return (
-      <div className="page-layout">
-        <Link to={'/'}>Voltar</Link>
-        <h1 className="page-layout__title">{current.title}</h1>
-        <h2 className="page-layout__director">Directed By: {current.director}</h2>
-        <p className="page-layout__release-date">Released at: {releaseDateString}</p>
-        <h3 className="page-layout__subtitle">Cast: </h3>
-        <Orderer />
-        <PeopleList people={cast}/>
-      </div>
+      <PageLayout classNames={'filmPage'} title={'Star Wars'} subtitle={current.title} info={info} hasHeader={true}>
+        <p className="btn" onClick={this.toggleCrawler}>{showCrawler ? 'close' : 'Watch opening'}</p>
+        { showCrawler &&
+          <StarWarsCrawler crawlText={current.opening_crawl} title={current.title} episode={current.episode_id}/>
+        }
+        <p className="filmPage__subtitle">Featured Characters</p>
+        <PeopleList people={cast} showOptions={false}/>
+      </PageLayout>
     );
   }
 }

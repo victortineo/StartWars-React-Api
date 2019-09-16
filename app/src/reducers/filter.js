@@ -5,9 +5,9 @@ import {
 } from '../actions/filter'
 
 const initialState = {
-    type: '',
     'order': 'films',
-    'filter': ''
+    'filter': '',
+    'filter_type': '',
 }
 
 export default function movies (state = initialState, action){
@@ -25,7 +25,7 @@ export default function movies (state = initialState, action){
         case SET_FILTER_TYPE: 
             return {
                 ...state,
-                type: action.type
+                filter_type: action.filter_type
             }
         default:
             return state

@@ -1,10 +1,23 @@
 .page-layout{
     text-align: center;
     &__title{
-        font-weight: 700;
         font-size: 32px;
         font-family: sans-serif;
         text-transform: uppercase;
-        margin: 5px 0;
+        margin: 5px 0 15px;
+        font-family: 'StarJedi';
+    }
+    &__subtitle{
+        font-size: 22px;
+        font-weight: 700;
+    }
+    &__header{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 20px;
+        * {
+            margin: 7px 0;
+        }
     }
 }

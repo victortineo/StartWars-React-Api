@@ -17,18 +17,24 @@ class Card extends Component {
         const { info, links, order, pathUrl, specie} = this.props
         const { showInfo } = this.state
         return(
-            <div className="card" onMouseEnter={this.showInfo} onMouseLeave={this.hideInfo}>
-                <h3>
-                    {info.name}
-                </h3>
-                <p>
-                    Specie: {specie.name}
-                </p>
-                {order !== 'name' && order !== 'species' &&
-                    <p>
-                        {order}: {this.getOrderInfo(order, info[order])}
-                    </p>
-                }
+            <div className="card" onMouseLeave={this.hideInfo}>
+                <Link to={`/person/${info.id}`} >
+                    <h3 className="card__title">
+                        {info.name}
+                    </h3>
+                    <div className="card__info">
+                        <p className="card__subtitle">
+                            Specie: {specie.name}
+                        </p>
+                        {order !== 'name' && order !== 'species' &&
+                            <p className="card__text">
+                                {order}: {this.getOrderInfo(order, info[order])}
+                            </p>
+                        }
+                    </div>
+                </Link>
+
+                <span className="card__show-info" onClick={this.showInfo}>See movies</span>
                 
                 {showInfo &&
                     <div className="card__hover">

@@ -8,19 +8,57 @@
     height: 200px;
     padding: 20px;
     border-radius: 2%;
-    background-color: red;
+    background-color: #f1f1f1;
     overflow: hidden;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    a{
+        text-decoration: none;
+    }
+    &__title{
+        font-weight: 700;
+        font-size: 22px;
+    }
+    &__info{
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;        
+        background-color: #111;
+        height: 48px;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        color: #feda4a;
+        padding: 5px 0;
+        transition: all 0.3s;
+    }
+    &__subtitle{
+        font-size: 16px;
+    }
+    &__text{
+        font-size: 12px;
+    }
     &__hover{
         display: flex;
         align-items: center;
         justify-content: center;
         position: absolute;
-        height: 100%;
+        height: calc(100% - 48px);
         width: 100%;
         left: 0;
         top: 0;
         background-color: #f1f1f1;
         animation: enter .5s;
+    }
+    &__show-info{
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        font-size: 14px;
+        cursor: pointer;
+    }
+    &__link-item {
+        margin: 3px 0;
     }
 }
 

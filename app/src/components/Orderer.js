@@ -11,14 +11,14 @@ class Orderer extends Component {
     render(){
         const { order } = this.props
         return(
-            <React.Fragment>
+            <div className="orderer">
                 <span>Order by: </span>
                 <select onChange={this.handleOnChange} value={order}>
                     {options.map(option => 
                         <option value={option.name} key={`orderer_${option.name}`}>{option.label}</option>
                     )}
                 </select>
-            </React.Fragment>
+            </div>
         )
     }
 }
